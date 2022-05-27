@@ -55,33 +55,41 @@ app.use(express.urlencoded({ extended: true })); //parse the req.body or bofy pa
 app.use(methodOverride('_method'));
 
 
-const store=new MongoDBStore({
-   mongoUrl:db_url,
-    secret: "mynameisdante",
-    touchAfter:24*60*60
+// const store=new MongoDBStore({
+//    mongoUrl:db_url,
+//     secret: "mynameisdante",
+//     touchAfter:24*60*60
 
-});
-store.on("error",function(e){
-console.log("session store error",e);
-})
+// });
+// store.on("error",function(e){
+// console.log("session store error",e);
+// })
 const secret=process.env.SECRET||"mynameisdante";
-const sessionConfig = {
- store,
- name:"session",
-    secret,
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        expires: Date.now() * 1000 * 60 * 60 * 24 * 7,
-        maxAge: 1000 * 60 * 60 * 24 * 7,
-        httpOnly: true
-    },
+// const sessionConfig = {
+//  store,
+//  name:"session",
+//     secret,
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: {
+//         expires: Date.now() * 1000 * 60 * 60 * 24 * 7,
+//         maxAge: 1000 * 60 * 60 * 24 * 7,
+//         httpOnly: true
+//     },
    
-}
+// }
+app.use(session({
+    secret:secret,
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoDBStore({
+      mongoUrl:db_url,
+      mongoOptions: {}
+    })
+}))
 
 
-
-app.use(session(sessionConfig))
+// app.use(session(sessionConfig))
 app.use(flash())
 
 app.use(passport.initialize());
