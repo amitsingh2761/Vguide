@@ -33,7 +33,7 @@ module.exports.isReviewAuthor = async (req, res, next) => {
     next();
 }
 module.exports.isAdmin = async (req, res, next) => {
-  if(req.user.id!=="628b320307fac4bd2021d0ea");
+  if(req.user.id!=="6290ecc89e5f0ba471f79af0");
   
   {req.flash("danger","access denied");
 return res.redirect("/place/");}
