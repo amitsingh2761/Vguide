@@ -83,7 +83,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: new MongoDBStore({
-      mongoUrl:db_url,
+      mongoUrl: mongoose.connection._connectionString,
       mongoOptions: {}
     })
 }))
