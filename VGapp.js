@@ -56,18 +56,19 @@ app.use(methodOverride('_method'));
 
 
 const store=new MongoDBStore({
-    mongoUrl:db_url,
+   mongoUrl:db_url,
     secret: "mynameisdante",
     touchAfter:24*60*60
 
-})
+});
 store.on("error",function(e){
 console.log("session store error",e);
 })
 const secret=process.env.SECRET||"mynameisdante";
 const sessionConfig = {
  store,
-    secret: secret,
+ name:"session",
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
