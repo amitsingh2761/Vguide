@@ -75,7 +75,7 @@ const sessionConfig = {
         maxAge: 1000 * 60 * 60 * 24 * 7,
         httpOnly: true
     },
-    store:MongoDBStore.create({mongoUrl:db_url, secret: secret ,
+    store:new MongoDBStore({mongoUrl:db_url, secret: secret ,
          touchAfter:24*60*60
     })
 }
