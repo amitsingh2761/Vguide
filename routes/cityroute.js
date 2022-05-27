@@ -23,7 +23,7 @@ Router.get("/new", isLoggedIn,isAdmin, (req, res) => {
     res.render("city/addcity.ejs")
 })
 //add city part 2
-Router.post('/', async (req, res) => {
+Router.post('/',isLoggedIn,isAdmin, async (req, res) => {
     const city = await new City(req.body);
     city.author = req.user._id;
 
