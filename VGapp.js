@@ -31,7 +31,7 @@ const MongoDBStore = require("connect-mongo");
 
 
 // mongodb+srv://firstuser:<password>@cluster0.3cg4j.mongodb.net/?retryWrites=true&w=majority
-const db_url=process.env.DB_URL || 'mongodb://localhost:27017/Vguide';
+const db_url=process.env.DBURL || 'mongodb://localhost:27017/Vguide';
 // 'mongodb://localhost:27017/Vguide'
 // db_url
 mongoose.connect(db_url, {
