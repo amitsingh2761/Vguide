@@ -35,9 +35,9 @@ const db_url=process.env.DB_URL || 'mongodb://localhost:27017/Vguide';
 // 'mongodb://localhost:27017/Vguide'
 // db_url
 mongoose.connect(db_url, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true
+    // useNewUrlParser: true,
+    // useCreateIndex: true,
+    // useUnifiedTopology: true
 });
 
 const db = mongoose.connection;
