@@ -2,6 +2,7 @@
   "name": "virtualguide",
   "version": "1.0.0",
   "main": "index.js",
+
   "scripts": {
     "dev": "react-scripts start",
     "start": "serve -s build",
@@ -39,5 +40,6 @@
     "passport-local-mongoose": "^7.0.0",
     "serve": "^13.0.2"
   },
-  "description": ""
+  "description": "very nice app",
+  "engines": {"node": "v16.15.0"}
 }
